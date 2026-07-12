@@ -1,0 +1,35 @@
+{
+  "name": "ai-backend",
+  "type": "module",
+  "scripts": {
+    "with-env": "dotenv -e ./.env --",
+    "worker:dev": "pnpm with-env tsx watch src/worker.ts",
+    "dev": "pnpm with-env tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@anvia/core": "^0.12.3",
+    "@anvia/openai": "^0.3.16",
+    "@hono/node-server": "^2.0.8",
+    "@hono/zod-validator": "^0.8.0",
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "bullmq": "^5.79.3",
+    "dotenv": "^17.4.2",
+    "dotenv-cli": "^11.0.0",
+    "hono": "^4.12.27",
+    "ioredis": "^5.11.1",
+    "md-to-pdf": "^5.2.5",
+    "prisma": "^7.8.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}
