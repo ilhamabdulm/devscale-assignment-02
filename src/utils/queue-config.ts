@@ -10,3 +10,4 @@ export const connection: ConnectionOptions = {
 };
 
 export const RESEARCH_QUEUE_NAME = "RESEARRCH_QUEUE";
+export const TRAVEL_QUEUE_NAME = "TRAVEL_PLAN_QUEUE";

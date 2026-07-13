@@ -26,12 +26,26 @@ model ResearchJob {
 }
 
 model ResearchJobResult {
-  id            String      @id @default(cuid())
+  id            String   @id @default(cuid())
   researchJobId String
   context       String
   perspective   String
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
-  researchJob   ResearchJob @relation(fields: [researchJobId], references: [id])
+  researchJob ResearchJob @relation(fields: [researchJobId], references: [id])
+}
+
+model TravelRecommendation {
+  id               String  @id @default(cuid())
+  destination_city String
+  est_budget       String
+  trip_duration    String
+  travel_date      String
+  additionalInfo   String?
+  isCompleted      Boolean @default(false)
+
+  response  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
