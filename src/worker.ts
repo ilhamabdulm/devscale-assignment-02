@@ -136,20 +136,13 @@ const plannerWorker = new Worker(
 
     await mdToPdf({ content: finalResult }, { dest: filePath });
 
-    await prisma.researchJob.update({
+    await prisma.travelRecommendation.update({
       where: {
         id: job.data.id,
       },
       data: {
         isCompleted: true,
-      },
-    });
-
-    await prisma.researchJobResult.create({
-      data: {
-        researchJobId: job.data.id,
-        context,
-        perspective: finalResult,
+        response: finalResult,
       },
     });
 
